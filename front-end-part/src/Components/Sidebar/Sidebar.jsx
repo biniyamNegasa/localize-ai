@@ -1,30 +1,31 @@
 import React from 'react';
-import { FaTrash, FaMoon, FaTachometerAlt, FaSignOutAlt } from 'react-icons/fa'; // Import icons from react-icons
+import { FaTrash, FaMoon, FaTachometerAlt, FaSignOutAlt } from 'react-icons/fa';
 import './Sidebar.css';
-import { Link } from 'react-router-dom';
-const Sidebar = () => {
+import { useNavigate } from 'react-router-dom';
+
+function Sidebar() {
+
+  const navigate = useNavigate();
+
   const handleClearConversation = () => {
-    console.log('Cleared Conversation');
+    navigate('/main');
   };
 
   const handleToggleLightMode = () => {
-    console.log('Toggled Light Mode');
+    console.log('toggle');
   };
 
   const handleOpenAiDashboard = () => {
-    console.log('Opened AI Dashboard');
+    navigate('/templet');
   };
 
   const handleLogOut = () => {
-    
-
-    console.log('Logged Out');
+    navigate('/firstpage');
   };
 
   return (
     <div className="side-bar-wrapper">
-
-      <div className="side-bar-row" onClick = {handleClearConversation}>
+      <div className="side-bar-row" onClick={handleClearConversation}>
         <div className="side-bar-icon">
           <FaTrash />
         </div>
@@ -49,9 +50,8 @@ const Sidebar = () => {
         <div className="side-bar-icon">
           <FaSignOutAlt />
         </div>
-        <Link to="/firstpage"><p className="side-bar-text">Log Out</p></Link>
+        <p className="side-bar-text">Log Out</p>
       </div>
-      
     </div>
   );
 };

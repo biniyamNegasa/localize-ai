@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './signin.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Signin() {
+    const navigate = useNavigate();
     const [FullName, setFullName] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -12,13 +13,20 @@ function Signin() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
-        console.log('Full Name:', FullName);
-        console.log('Username:', username);
-        console.log('Password:', password);
-        console.log('Confirm Password:', confirmPassword);
 
-        setError("something went wrong");
+        if (!FullName || !username || !password || !confirmPassword) {
+            setError("Please fill in all fields");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            setError("Passwords do not match");
+            return;
+        }
+
+        setError("Sign up successful");
+        
+        
     };
 
     return (
@@ -65,7 +73,7 @@ function Signin() {
                     <p className = "error">{error}</p>
                     <input type="submit" className="btn" value="Continue" />
                 </form>
-                <p className = "option">Already have an account? <span className  = "option-link"><Link to = "/login"> Log in </Link></span></p>
+                <p className = "option">Already have an account? <span className  = "option-link" onClick={() => navigate("/login")}>Log in</span></p>
 
             </div>
           

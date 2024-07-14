@@ -3,7 +3,8 @@ import CapablityDisplayer from '../CapablityDisplayer/CapablityDisplayer.jsx';
 import './Templets.css';
 import { AiFillThunderbolt,AiTwotoneWarning } from "react-icons/ai";
 import Example from '../Examples/Example.jsx';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
+import Sidebar from '../Sidebar/Sidebar.jsx';
 
 function Templet() {
     const Contents = [
@@ -21,20 +22,30 @@ function Templet() {
       ];
       
   return (
-    <div className  = "templet-container">
-    <div className="capability-list">
-      <Example />
-      {Contents.map((capability, index) => (
-        <CapablityDisplayer
-          key={index}
-          icon={capability.icon}
-          name={capability.name}
-          data={capability.data}
-        />
-      ))}
-    </div>
-    <Link to="/main"><button className="navigation">Go to home Page</button></Link>
-    </div>
+    <div className="app_container">
+      <div className="side-bar">
+        <Sidebar />
+      </div>
+    <div className="main-side">
+      <div className  = "templet-container">
+      <div className="capability-list">
+        <Example />
+        {Contents.map((capability, index) => (
+          <CapablityDisplayer
+            key={index}
+            icon={capability.icon}
+            name={capability.name}
+            data={capability.data}
+          />
+        ))}
+      </div>
+      <Link to="/main"><button className="navigation">Go to home Page</button></Link>
+      </div>
+
+        </div>
+      </div>
+
+   
   );
 }
 
