@@ -1,0 +1,31 @@
+.capability-list{
+    display: flex;
+    flex-flow:row;
+    align-items: center;
+    flex-flow:row;
+    justify-content: center;
+    padding: 20px;
+    background-color: #1E1E1E;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.navigation{
+    width: auto;
+    padding: 10px;
+    background-color: #0FA47F;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 3em;
+    align-self: center;
+}
+.templet-container{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
