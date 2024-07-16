@@ -1,0 +1,59 @@
+
+
+
+.message {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  max-width: 60%;
+  display: block;
+  clear: both;
+  word-break: break-word; 
+  position: relative;
+  margin-bottom: 20px;
+
+}
+
+
+.message.user {
+  background-color: #dcf8c6;
+  align-self: flex-start;
+  text-align: left;
+  width:20%;
+   float: right; 
+   color: white;
+   background-color:  #3d3e3f;
+   /* height: 1.4em; */
+   padding: 20px;
+   border-radius: 1.8em;
+   font-family: 'Noto Sans Ethiopic', sans-serif;
+
+}
+
+
+.message.assistant {
+  background-color: #f1f0f0;
+  align-self: flex-start;
+  text-align: left;
+  float:left;
+  margin-left: 5em;
+}
+
+
+
+
+.message-form button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
