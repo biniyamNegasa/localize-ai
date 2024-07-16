@@ -5,27 +5,40 @@
     flex-flow:row;
     justify-content: center;
     padding: 20px;
-    background-color: #1E1E1E;
+    /* background-color: #1E1E1E; */
+    background-color: #E3E5EA;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    /* margin-bottom: 20px; */
+    margin-top: 0px;
+    padding-top: 0px;
+}
+.app_container{
+    background-color: #E3E5EA;
+
 }
 .navigation{
     width: auto;
     padding: 10px;
-    background-color: #0FA47F;
+    padding-top: 0px;
+    background-color: #45587B;
     border: none;
     border-radius: 5px;
     font-size: 18px;
     color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 3em;
+   
+    /* margin-top: 3em; */
     align-self: center;
+    overflow: visible;
+    margin-top: -5em;
 }
 .templet-container{
     display: flex;
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    background-color: #E3E5EA;
+    /* border:1px solid black; */
+
 }

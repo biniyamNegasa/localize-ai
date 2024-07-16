@@ -1,7 +1,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1E1E1E;
+    /* background-color: #1E1E1E; */
+    background-color: #E3E5EA;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,11 +16,15 @@ body {
     align-items: center;
     height: 100vh;
     width: 100%;
-    background-color: #1E1E1E;
+    /* background-color: #1E1E1E; */
+    background-color: #E3E5EA;
+
 }
 
 .Signin-box{
-    background-color: #1E1E1E;
+    /* background-color: #1E1E1E; */
+    background-color: #E3E5EA;
+
     padding: 10px;
     border-radius: 10px;
     /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
@@ -30,7 +35,7 @@ body {
 
 .welcome-messaeg{
     margin-bottom: 30px;
-    color: white;
+    color: black;   
 }
 
 .error{

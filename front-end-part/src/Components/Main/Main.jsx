@@ -14,6 +14,7 @@ const Main = () => {
   useEffect(() => {
     const fetchMessages = async () => {
       try {
+        setMessages([]);
         const response = await axios.get('http://localhost/chatApptempo/chatapp.php');
         console.log('Initial Messages:', response.data);
         setMessages(response.data.messages || []);
@@ -31,10 +32,12 @@ const Main = () => {
       return;
     }
     const newMessage = { role: 'user', content: input };
+    setMessages([]);
     setMessages(prevMessages => [...prevMessages, newMessage]);
     
 
     try {
+      
       const response = await axios.post('http://localhost/chatApptempo/chatapp.php', { message: input });
       console.log('Response:', response.data);
       const assistantMessages = response.data.answer; 
