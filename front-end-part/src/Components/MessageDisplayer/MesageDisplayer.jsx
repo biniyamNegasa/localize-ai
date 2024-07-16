@@ -1,6 +1,7 @@
 import React from 'react';
 import './MessageDisplayer.css';
 const MessageDisplayer = ({ messages = [] }) => {
+   messages = [...messages].reverse();
  
 
   return (

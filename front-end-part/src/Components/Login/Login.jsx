@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './login.css';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
     const navigate = useNavigate();
@@ -17,6 +18,21 @@ function Login() {
             return;
         }
 
+        axios.post('http://localhost:5000/login', {
+            username,
+            password
+        }).then((res) => {
+            if (res.data === "Incorrect password") {
+                setError("Incorrect password");
+                return; 
+            }
+            if (res.data === "User not found") {
+                setError("User not found");
+                return; 
+            }
+        })
+
+        navigate('/template');
         setError("Login successful");
     };
 
