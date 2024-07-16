@@ -10,7 +10,7 @@ function Templet() {
     const Contents = [
     
         {
-          icon: <AiFillThunderbolt color = "white" /> ,
+          icon: <AiFillThunderbolt /> ,
           name: 'Capability', 
           data: ['Provides detailed explanations on a wide range of topics', 'Supports programming and coding with script generation and debugging advice', 'Helps with learning and education by explaining concepts'],
         },

@@ -1,8 +1,9 @@
 
 .side-bar-wrapper {
-    width: 25%;
+    width: 20%;
     height: 100%;
-    background-color: #3d3e3f;
+    /* background-color: #3d3e3f; */
+    background-color: #272F41;
     color: #fff;
     flex-direction: column;
     padding: 15px;

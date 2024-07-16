@@ -11,9 +11,7 @@ function Sidebar() {
     navigate('/main');
   };
 
-  const handleToggleLightMode = () => {
-    console.log('toggle');
-  };
+ 
 
   const handleOpenAiDashboard = () => {
     navigate('/templet');
@@ -32,13 +30,7 @@ function Sidebar() {
         <p className="side-bar-text">Clear Conversation</p>
       </div>
 
-      <div className="side-bar-row" onClick={handleToggleLightMode}>
-        <div className="side-bar-icon">
-          <FaMoon />
-        </div>
-        <p className="side-bar-text">Light Mode</p>
-      </div>
-
+     
       <div className="side-bar-row" onClick={handleOpenAiDashboard}>
         <div className="side-bar-icon">
           <FaTachometerAlt />

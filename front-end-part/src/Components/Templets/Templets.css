@@ -5,21 +5,26 @@
     flex-flow:row;
     justify-content: center;
     padding: 20px;
-    background-color: #1E1E1E;
+    /* background-color: #1E1E1E; */
+    background-color: #E3E5EA;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
     margin-bottom: 20px;
+}
+.app_container{
+    background-color: #E3E5EA;
+
 }
 .navigation{
     width: auto;
     padding: 10px;
-    background-color: #0FA47F;
+    background-color: #45587B;
     border: none;
     border-radius: 5px;
     font-size: 18px;
     color: #fff;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+   
     margin-top: 3em;
     align-self: center;
 }
@@ -28,4 +33,6 @@
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    background-color: #E3E5EA;
+
 }

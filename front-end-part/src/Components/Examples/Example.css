@@ -5,7 +5,9 @@
     flex-flow: column;
     background-color:  #1E1E1E;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    background-color: #E3E5EA;
+
     /* margin-bottom: 20px; */
     /* border: #ff0000 1px solid; */
     height: auto;
@@ -28,7 +30,8 @@
     font-size: 1rem;
     margin: 1em;
     color: white;
-    background-color: #555;
+    /* background-color: #555; */
+    background-color: #71A2F7;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -37,13 +40,13 @@
   .displayer-example-name {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: white;
+    color: black;
     text-align: center  ;
 }
   .example-icon{
     font-size: 2rem;
     margin-right: 20px;
-    color:white;
+    color:black;
   }
 
 
