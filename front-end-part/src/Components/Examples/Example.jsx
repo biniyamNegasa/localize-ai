@@ -21,7 +21,7 @@ const Example = () => {
     <div className="example-container">
       <div className="example-icon"><AiOutlineSun /></div>
 
-        <p className="displayer-example-name">Examples</p>
+        <p className="displayer-example-name"><b>Examples</b></p>
 
         <p className="paragraph">
           {sentences.map((sentence, index) => (
