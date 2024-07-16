@@ -7,7 +7,7 @@
   min-width: 100%;
   /* box-shadow: #282c34 0px 0px 10px; */
   padding-bottom: 6em;
-  padding-top: 3em;
+  /* padding-top: 3em; */
   /* background-color: rgb(31, 30, 30); */
     background-color: #E3E5EA;
 
@@ -62,7 +62,7 @@
     /* background-color: #3d3e3f; */
     background-color: white;
     padding: 10px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 -2px 5px rgba(214, 213, 213, 0.1);
     width:60%;
     border-radius:1em;
     /* color:white; */
@@ -124,3 +124,4 @@
   :-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+

@@ -9,7 +9,9 @@
     background-color: #E3E5EA;
     border-radius: 10px;
     /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
+    margin-top: 0px;
+    padding-top: 0px;
 }
 .app_container{
     background-color: #E3E5EA;
@@ -18,6 +20,7 @@
 .navigation{
     width: auto;
     padding: 10px;
+    padding-top: 0px;
     background-color: #45587B;
     border: none;
     border-radius: 5px;
@@ -25,8 +28,10 @@
     color: #fff;
     cursor: pointer;
    
-    margin-top: 3em;
+    /* margin-top: 3em; */
     align-self: center;
+    overflow: visible;
+    margin-top: -5em;
 }
 .templet-container{
     display: flex;
@@ -34,5 +39,6 @@
     align-items: center;
     justify-content: center;
     background-color: #E3E5EA;
+    /* border:1px solid black; */
 
 }

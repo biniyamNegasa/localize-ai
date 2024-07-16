@@ -1,11 +1,18 @@
 import React from 'react';
 import './firstpage.css';
 import { Link } from 'react-router-dom';
+import  logo from '../../assets/logooo.png'
 
 function FirstPage() {
   return (
     <>
     <body>
+
+      <div className="image-wrapper">
+
+    <div className="logo-wrapper">
+        <img src={logo} alt="logo" className="logo"  />
+      </div>
         
    
       <div className="first-page-wrapper">
@@ -19,6 +26,7 @@ function FirstPage() {
             <Link to="/signup">Sign Up</Link>
           </button>
         </div>
+      </div>
       </div>
      
       </body>
