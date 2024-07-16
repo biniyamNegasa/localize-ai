@@ -1,55 +1,67 @@
-const { OpenAI } = require("openai");
-const translate = require("../config/awsConfig");
+const axios = require("axios");
+const { geminiResponse } = require("./gemini.js");
+const {
+  TranslateClient,
+  TranslateTextCommand,
+} = require("@aws-sdk/client-translate");
 
-// Initialize the OpenAI client with the API key from .env
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
+// AWS Translate API Configuration
+const translateClient = new TranslateClient({
+  region: process.env.AWS_REGION,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
 });
 
-exports.chat = async (req, res) => {
-  const { message } = req.body;
-
+const translateText = async (text, sourceLang, targetLang) => {
   try {
-    // Translate Amharic to English using AWS Translate
-    const paramsToEnglish = {
-      Text: message,
-      SourceLanguageCode: "am",
-      TargetLanguageCode: "en",
-    };
-    const translatedMessage = await translate
-      .translateText(paramsToEnglish)
-      .promise();
-
-    // Get response from OpenAI
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [{ role: "user", content: translatedMessage.TranslatedText }],
-      max_tokens: 150, // Adjust this value if needed
+    const command = new TranslateTextCommand({
+      Text: text,
+      SourceLanguageCode: sourceLang,
+      TargetLanguageCode: targetLang,
     });
-
-    const chatResponse = response.choices[0].message.content.trim();
-
-    // Translate English response back to Amharic using AWS Translate
-    const paramsToAmharic = {
-      Text: chatResponse,
-      SourceLanguageCode: "en",
-      TargetLanguageCode: "am",
-    };
-    const translatedResponse = await translate
-      .translateText(paramsToAmharic)
-      .promise();
-
-    res.json({ response: translatedResponse.TranslatedText });
-  } catch (err) {
-    if (err.response && err.response.status === 429) {
-      res
-        .status(429)
-        .json({
-          message:
-            "You have exceeded your OpenAI API quota. Please upgrade your plan or try again later.",
-        });
-    } else {
-      res.status(500).json({ message: err.message });
-    }
+    const response = await translateClient.send(command);
+    return response.TranslatedText;
+  } catch (error) {
+    console.error("Error translating text:", error);
+    throw new Error("Translation error");
   }
 };
+
+const chat = async (req, res) => {
+  try {
+    const { message } = req.body;
+
+    if (!message) {
+      throw new Error("Message is required in the request body");
+    }
+
+    console.log("Received message:", message);
+
+    // Translate the message from Amharic to English
+    const translatedText = await translateText(message, "am", "en");
+    console.log("Translated text:", translatedText);
+
+    // Get the response from Gemini AI API
+    const aiResponse = await geminiResponse(translatedText);
+    console.log("AI response:", aiResponse);
+
+    // Translate the response from English to Amharic
+    const backTranslatedText = await translateText(aiResponse, "en", "am");
+    console.log("Back translated text:", backTranslatedText);
+
+    // Send the response back to the frontend
+    res.json({ response: backTranslatedText });
+  } catch (error) {
+    console.error(
+      "Error during chat processing:",
+      error.response ? error.response.data : error.message
+    );
+    res
+      .status(500)
+      .json({ error: "An error occurred during chat processing." });
+  }
+};
+
+module.exports = { chat };
