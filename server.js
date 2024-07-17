@@ -3,8 +3,11 @@ const express = require("express");
 const connectDB = require("./server/config/db");
 const authRoutes = require("./server/routes/auth");
 const chatRoutes = require("./server/routes/chat");
+const cors = require('cors');
+
 
 const app = express();
+app.use(cors());
 
 // Connect to database
 connectDB();

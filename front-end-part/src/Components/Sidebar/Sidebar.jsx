@@ -27,7 +27,7 @@ function Sidebar() {
         <div className="side-bar-icon">
           <FaTrash />
         </div>
-        <p className="side-bar-text">Clear Conversation</p>
+        <p className="side-bar-text">ውይይት አጽዳ</p>
       </div>
 
      
@@ -35,14 +35,14 @@ function Sidebar() {
         <div className="side-bar-icon">
           <FaTachometerAlt />
         </div>
-        <p className="side-bar-text">Open AI Dashboard</p>
+        <p className="side-bar-text">AI ዳሽቦርድን ይክፈቱ</p>
       </div>
 
       <div className="side-bar-row" onClick={handleLogOut}>
         <div className="side-bar-icon">
           <FaSignOutAlt />
         </div>
-        <p className="side-bar-text">Log Out</p>
+        <p className="side-bar-text">ውጣ</p>
       </div>
     </div>
   );

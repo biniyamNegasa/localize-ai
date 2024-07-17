@@ -31,16 +31,16 @@ const translateText = async (text, sourceLang, targetLang) => {
 
 const chat = async (req, res) => {
   try {
-    const { message } = req.body;
+    const { input } = req.body;
 
-    if (!message) {
+    if (!input) {
       throw new Error("Message is required in the request body");
     }
 
-    console.log("Received message:", message);
+    console.log("Received message:", input);
 
     // Translate the message from Amharic to English
-    const translatedText = await translateText(message, "am", "en");
+    const translatedText = await translateText(input, "am", "en");
     console.log("Translated text:", translatedText);
 
     // Get the response from Gemini AI API
@@ -52,7 +52,7 @@ const chat = async (req, res) => {
     console.log("Back translated text:", backTranslatedText);
 
     // Send the response back to the frontend
-    res.json({ response: backTranslatedText });
+    res.json({data:{ message: backTranslatedText , success: true}});
   } catch (error) {
     console.error(
       "Error during chat processing:",
@@ -60,7 +60,7 @@ const chat = async (req, res) => {
     );
     res
       .status(500)
-      .json({ error: "An error occurred during chat processing." });
+      .json({data: { message: "An error occurred during chat processing.", error: true} });
   }
 };
 

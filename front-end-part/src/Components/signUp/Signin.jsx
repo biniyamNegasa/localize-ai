@@ -5,8 +5,8 @@ import axios from 'axios';
 
 function Signin() {
     const navigate = useNavigate();
-    const [FullName, setFullName] = useState("");
-    const [username, setUsername] = useState("");
+    const [name, setFullName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
@@ -15,7 +15,7 @@ function Signin() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!FullName || !username || !password || !confirmPassword) {
+        if (!name || !email || !password || !confirmPassword) {
             setError("Please fill in all fields");
             return;
         }
@@ -25,18 +25,24 @@ function Signin() {
             return;
         }
 
-        axios.post('http://localhost:5000/signup', {
-            FullName,
-            username,
+        axios.post('http://localhost:5000/api/auth/register', {
+            name,
+            email,
             password
         }).then((res) => {
-            if (res.data === "User already exists") {
-                setError("User already exists");
+            console.log(res.data)
+            if (res.data.data.success) {
+                navigate('/login');
+                
                 return; 
+            }else{
+                setError(res.data.data.message);
             }
         })
-
-        navigate('/login');
+        .catch(e => {
+            setError("Unkown Error")    
+        })
+        
         // setError("Sign up successful");
         
         
@@ -46,15 +52,15 @@ function Signin() {
         <div className="Signin-wrapper">
             <div className="Signin-box">
 
-                <h1 className = "welcome-messaeg">Welcome</h1>
+                <h1 className = "welcome-messaeg">እንኳን ደህና መጡ</h1>
 
                 <form onSubmit={handleSubmit}>
 
                 <div className="textbox">
                         <input
                             type="text"
-                            placeholder="Full Name"
-                            value={FullName}
+                            placeholder="ሙሉ ስም"
+                            value={name}
                             onChange={(e) => setFullName(e.target.value)}
                         />
                     </div>
@@ -62,15 +68,15 @@ function Signin() {
                     <div className="textbox">
                         <input
                             type="text"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
+                            placeholder="ኢሜይል"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
                     <div className="textbox">
                         <input
                             type="password"
-                            placeholder="Password"
+                            placeholder="የይለፍ ቃል"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
@@ -78,15 +84,15 @@ function Signin() {
                     <div className="textbox">
                         <input
                             type="password"
-                            placeholder="Confirm Password"
+                            placeholder="የይለፍ ቃል ያረጋግጡ"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
                     </div>
                     <p className = "error">{error}</p>
-                    <input type="submit" className="btn" value="Continue" />
+                    <input type="submit" className="btn" value="ይመዝገቡ" />
                 </form>
-                <p className = "option">Already have an account? <span className  = "option-link" onClick={() => navigate("/login")}>Log in</span></p>
+                <p className = "option">መለያ አሎት? <span className  = "option-link" onClick={() => navigate("/login")}>ይግቡ</span></p>
 
             </div>
           

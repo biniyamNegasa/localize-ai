@@ -27,6 +27,7 @@ body {
 .logo-wrapper{
     margin-bottom: 0px;
     padding-bottom: 0px;
+    margin-top: 40%;
 }
 .first-page-wrapper {
     /* border:1px solid black; */
@@ -65,8 +66,8 @@ body {
     gap: 40px;
 }
 
-.first-page-button {
-    /* background-color: #0FA47F; */
+
+.first-page-button a {
     background-color: #45587B;
     border: none;
     border-radius: 5px;
@@ -75,12 +76,20 @@ body {
     color: #fff;
     cursor: pointer;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition:  0.3s ;
 }
 
 .first-page-button a {
     color: #fff;
     text-decoration: none;
+}
+
+.first-page-button a:hover {
+    box-shadow: 0 0 0 3px #7185a8;
+}
+.first-page-button a:active{
+    background-color: #E3E5EA;
+    color: black;
 }
 
 /* .first-page-button:hover {

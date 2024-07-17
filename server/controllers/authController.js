@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/user");
 const {
   generateToken,
   hashPassword,
@@ -12,7 +12,7 @@ exports.registerUser = async (req, res) => {
     const userExists = await User.findOne({ email });
 
     if (userExists) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(200).json({ data : {message: "User already exists", error: true} });
     }
 
     const hashedPassword = await hashPassword(password);
@@ -24,33 +24,38 @@ exports.registerUser = async (req, res) => {
     });
 
     res.status(201).json({
+      data: {
       _id: user._id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id),
+      success: true
+      }
     });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.status(200).json({ data: { message: err.message , error: true} });
   }
 };
 
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
-
+  console.log(req.body)
   try {
     const user = await User.findOne({ email });
 
     if (user && (await comparePasswords(password, user.password))) {
       res.json({
+        data: {
         _id: user._id,
         name: user.name,
         email: user.email,
-        token: generateToken(user._id),
+        success: true
+        }
+
       });
     } else {
-      res.status(400).json({ message: "Invalid email or password" });
+      res.json({ data : { message: "Invalid email or password" , error: true}});
     }
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.json({ data: {message: err.message, error: true }});
   }
 };

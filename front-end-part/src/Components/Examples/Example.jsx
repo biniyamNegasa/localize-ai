@@ -12,16 +12,16 @@ const Example = () => {
   };
 
   const sentences = [
-    "Can you explain the concept of object-oriented programming?",
-    "What are some effective time management techniques?",
-    "How do I write a thesis statement?"
+    "የነገር ተኮር ፕሮግራሚንግ ፅንሰ-ሀሳብን ማብራራት ትችላለህ?",
+    "አንዳንድ ውጤታማ የጊዜ አያያዝ ዘዴዎች ምንድ ናቸው?",
+    "የመመረቂያ መግለጫ እንዴት እጽፋለሁ??"
   ];
 
   return (
     <div className="example-container">
       <div className="example-icon"><AiOutlineSun /></div>
 
-        <p className="displayer-example-name"><b>Examples</b></p>
+        <p className="displayer-example-name"><b>ምሳሌዎች</b></p>
 
         <p className="paragraph">
           {sentences.map((sentence, index) => (

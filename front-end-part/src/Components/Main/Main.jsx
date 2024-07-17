@@ -10,11 +10,16 @@ import Sidebar from '../Sidebar/Sidebar.jsx';
 const Main = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
-
+  const [error, setError] = useState("")
+  const fixText = (string_val) => {
+    const s = string_val.replaceAll('**', ' \n\n\n')
+    const final = s.replaceAll('*', " \n\n\n ")
+    return final
+  }
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        setMessages([]);
+        setMessages([{role: "assistance",content: "ጥያቄዎችን በመመለስ፣ መረጃ በመስጠት፣ ጽሑፍ በማመንጨት እና በሌሎችም እገዛ ማድረግ እችላለሁ። ምን ማወቅ ወይም መወያየት ይፈልጋሉ?"}]);
         const response = await axios.get('http://localhost/chatApptempo/chatapp.php');
         console.log('Initial Messages:', response.data);
         setMessages(response.data.messages || []);
@@ -32,19 +37,27 @@ const Main = () => {
       return;
     }
     const newMessage = { role: 'user', content: input };
-    setMessages([]);
     setMessages(prevMessages => [...prevMessages, newMessage]);
     
 
-    try {
+    axios.post('http://localhost:5000/api/chat', {
       
-      const response = await axios.post('http://localhost/chatApptempo/chatapp.php', { message: input });
-      console.log('Response:', response.data);
-      const assistantMessages = response.data.answer; 
-      setMessages(prevMessages => [...prevMessages, ...assistantMessages]);
-    } catch (error) {
-      console.error('Error:', error);
-    }
+      input
+  }).then((res) => {
+      console.log(res.data)
+      if (res.data.data.success) {
+        const answer = fixText(res.data.data.message)
+          const responceMessage = {role: "assistance", content: answer}
+          setMessages(prevMessages => [...prevMessages, responceMessage])
+      }else{
+          setError(res.data.data.message);
+      }
+  })
+  .catch(e => {
+      setError("Unkown Error")    
+  })
+    
+
     setInput('');
   };
 
@@ -65,11 +78,11 @@ const Main = () => {
         <div className="input-wrapper">
           <input 
             type="text" 
-            placeholder="Enter your message..." 
+            placeholder="መልዕክቶን ያስገቡ..." 
             value={input} 
             onChange={(e) => setInput(e.target.value)} 
           />
-          <button type="submit"><AiOutlineSend /></button>
+          <button type="submit" className='send-btn'><AiOutlineSend /></button>
         </div>
       </form>
     </div>

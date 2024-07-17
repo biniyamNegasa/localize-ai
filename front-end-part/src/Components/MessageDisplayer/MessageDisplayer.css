@@ -1,6 +1,4 @@
 
-
-
 .message {
   padding: 10px;
   border-radius: 5px;
@@ -32,7 +30,7 @@
 }
 
 
-.message.assistant {
+.message, .assistant {
   /* background-color: #f1f0f0; */
   background-color: white;
   align-self: flex-start;

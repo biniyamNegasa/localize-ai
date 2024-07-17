@@ -13,13 +13,13 @@ function Templet() {
     
         {
           icon: <AiFillThunderbolt /> ,
-          name: 'Capability', 
-          data: ['Provides detailed explanations on a wide range of topics', 'Supports programming and coding with script generation and debugging advice', 'Helps with learning and education by explaining concepts'],
+          name: 'ችሎታ', 
+          data: ['በተለያዩ ርዕሰ ጉዳዮች ላይ ዝርዝር ማብራሪያዎችን ያቀርባል', 'በስክሪፕት ማመንጨት እና በማረም ምክር ፕሮግራሚንግ እና ኮድ መስጠትን ይደግፋል', 'ጽንሰ-ሀሳቦችን በማብራራት በመማር እና በትምህርት ይረዳል'],
         },
         {
           icon: <AiTwotoneWarning color = "red" />,
-          name: 'Limitation',
-          data: ['Lack of true understanding or consciousness', 'Inability to fully understand context', 'Lack of real-time information'],
+          name: 'ገደብ',
+          data: ['የእውነተኛ ግንዛቤ ወይም የንቃተ ህሊና እጥረት', 'ዐውደ-ጽሑፉን ሙሉ በሙሉ ለመረዳት አለመቻል', 'የእውነተኛ ጊዜ መረጃ እጥረት'],
         },
       ];
       
@@ -51,7 +51,7 @@ function Templet() {
           />
         ))}
       </div>
-      <Link to="/main"><button className="navigation">Start Chat</button></Link>
+      <Link to="/main"><button className="btn margin-bottom">ውይይት ጀምር</button></Link>
       </div>
 
         </div>
