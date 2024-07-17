@@ -5,12 +5,14 @@ import { AiFillThunderbolt,AiTwotoneWarning } from "react-icons/ai";
 import Example from '../Examples/Example.jsx';
 import { Link,useNavigate } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar.jsx';
+import  logo from '../../assets/small--logo.png'
+
 
 function Templet() {
     const Contents = [
     
         {
-          icon: <AiFillThunderbolt color = "white" /> ,
+          icon: <AiFillThunderbolt /> ,
           name: 'Capability', 
           data: ['Provides detailed explanations on a wide range of topics', 'Supports programming and coding with script generation and debugging advice', 'Helps with learning and education by explaining concepts'],
         },
@@ -27,6 +29,16 @@ function Templet() {
         <Sidebar />
       </div>
     <div className="main-side">
+
+
+
+    <div className="image-wrapper">
+    <div className="logo-wrapper">
+    <img src={logo} alt="logo" className="logo"/>
+  </div>
+
+
+
       <div className  = "templet-container">
       <div className="capability-list">
         <Example />
@@ -39,10 +51,12 @@ function Templet() {
           />
         ))}
       </div>
-      <Link to="/main"><button className="navigation">Go to home Page</button></Link>
+      <Link to="/main"><button className="navigation">Start Chat</button></Link>
       </div>
 
         </div>
+        </div>
+
       </div>
 
    

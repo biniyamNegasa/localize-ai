@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './signin.css';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Signin() {
     const navigate = useNavigate();
@@ -24,7 +25,19 @@ function Signin() {
             return;
         }
 
-        setError("Sign up successful");
+        axios.post('http://localhost:5000/signup', {
+            FullName,
+            username,
+            password
+        }).then((res) => {
+            if (res.data === "User already exists") {
+                setError("User already exists");
+                return; 
+            }
+        })
+
+        navigate('/login');
+        // setError("Sign up successful");
         
         
     };
