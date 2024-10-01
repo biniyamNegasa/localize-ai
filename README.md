@@ -44,6 +44,9 @@ Localize AI is a groundbreaking project designed to help non-English users acros
 #### Log in Page
 ![Log_in](photos/photo_2024-10-01_11-53-43.jpg)
 
+## Watch Demo Here
+![Demo](https://www.youtube.com/watch?v=IxgBML2CBPU)
+
 ## Contributing
 
 We welcome contributions to improve Localize AI! Please follow these steps:
