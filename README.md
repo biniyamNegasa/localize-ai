@@ -30,12 +30,23 @@ Localize AI is a groundbreaking project designed to help non-English users acros
 2. The system translates and generates an AI response.
 3. Output: "ይህ አዲሱ ድርጅት አቋም እንደሆነ እንዲያስተዋውቁት ትቀጠቀማለች።"
 
+### Demo Images
+#### Home Page
+![](photos/photo_2024-10-01_11-53-41.jpg)
+#### Landing Page
+![Landing Page](photos/photo_2024-10-01_11-53-40.jpg)
 
+#### Chat Page
+![Chat Page](photos/photo_2024-10-01_11-53-39.jpg)
+
+#### Sign Up Page
+![Sign_up](photos/photo_2024-10-01_11-53-44.jpg)
+#### Log in Page
+![Log_in](photos/photo_2024-10-01_11-53-43.jpg)
 
 ## Contributing
 
 We welcome contributions to improve Localize AI! Please follow these steps:
-
 1. Fork the repository.
 2. Create a feature branch.
 3. Make your changes.
