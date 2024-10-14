@@ -1,8 +1,8 @@
 const request = require("supertest");
 const express = require("express");
-const app = require("../server"); 
-const User = require("../server/models/user");
-const { hashPassword } = require("../server/utils/auth");
+const app = require("../../server"); 
+const User = require("../../server/models/user");
+const { hashPassword } = require("../../server/utils/auth");
 
 beforeAll(async () => {
   await User.deleteMany(); 

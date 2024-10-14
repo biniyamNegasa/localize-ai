@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const User = require("../server/models/user");
+const User = require("../../server/models/user");
 
 beforeAll(async () => {
   await mongoose.connect("mongodb://localhost:27017/test_db", {

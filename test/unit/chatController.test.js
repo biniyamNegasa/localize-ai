@@ -1,7 +1,7 @@
 const request = require("supertest");
 const express = require("express");
-const app = require("../server");
-const { geminiResponse } = require("../server/controllers/gemini");
+const app = require("../../server");
+const { geminiResponse } = require("../../server/controllers/gemini");
 
 jest.mock("../server/controllers/gemini"); 
 
